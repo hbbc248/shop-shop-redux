@@ -3,14 +3,16 @@ import { UPDATE_CATEGORIES, UPDATE_CURRENT_CATEGORY } from '../../utils/actions'
 import { useQuery } from '@apollo/client';
 import { QUERY_CATEGORIES } from '../../utils/queries';
 
-import { useStoreContext } from "../../utils/GlobalState";
+//redux
+import { useSelector, useDispatch } from "react-redux";
 
 // indexedDB
 import { idbPromise } from '../../utils/helpers';
 
 function CategoryMenu() {
 
-  const [state, dispatch] = useStoreContext();
+  const state = useSelector((state) => state);
+  const dispatch = useDispatch();
 
   const { categories } = state;
 

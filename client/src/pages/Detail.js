@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useStoreContext } from "../utils/GlobalState";
+
 import {
   REMOVE_FROM_CART,
   UPDATE_CART_QUANTITY,
@@ -18,9 +18,13 @@ import Cart from '../components/Cart';
 // indexedDB
 import { idbPromise } from "../utils/helpers";
 
+import { useSelector, useDispatch } from "react-redux";
+
 function Detail() {
 
-  const [state, dispatch] = useStoreContext();
+  const state = useSelector((state) => state);
+  const dispatch = useDispatch();
+  
   const { id } = useParams();
 
   const [currentProduct, setCurrentProduct] = useState({})
